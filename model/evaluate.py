@@ -8,25 +8,23 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sb
 import tensorflow as tf
-import configargparse
 
 import utils
 # road 98.10
-# car  60.31
+# vehicle  60.31
 # obstacle 73.30
 # occluded 86.62
 
-input_validation = ['../data/1_FRLR/val/front', '../data/1_FRLR/val/rear', '../data/1_FRLR/val/left',
-                    '../data/1_FRLR/val/right']
-label_validation = '../data/1_FRLR/val/bev+occlusion'
+input_validation = ['../data/2_F/val/front']
+label_validation = '../data/2_F/val/bev+occlusion'
 max_samples_validation = 10000
 image_shape = [256, 512]
-one_hot_palette_input = 'one_hot_conversion/convert_4.xml'
+one_hot_palette_input = 'one_hot_conversion/convert_10.xml'
 one_hot_palette_label = 'one_hot_conversion/convert_3+occl.xml'
-#class_names = ['road', 'sidewalk', 'person', 'car', 'truck', 'bus', 'bike', 'obstacle', 'vegetation', 'occluded']
-class_names = ['road', 'car', 'obstacle','occluded']
+#class_names = ['road', 'sidewalk', 'person', 'vehicle', 'truck', 'bus', 'bike', 'obstacle', 'vegetation', 'occluded']
+class_names = ['road', 'vehicle', 'obstacle', 'occluded']
 model = 'architecture/uNetXST.py'
-unetxst_homographies = '../preprocessing/homography_converter/uNetXST_homographies/1_FRLR.py'
+unetxst_homographies = '../preprocessing/homography_converter/uNetXST_homographies/2_F.py'
 model_weights = './best_weights.hdf5'
 
 # determine absolute filepaths

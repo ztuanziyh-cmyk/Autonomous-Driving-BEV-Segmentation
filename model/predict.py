@@ -5,23 +5,22 @@ import tqdm
 import numpy as np
 import cv2
 import tensorflow as tf
-import configargparse
 
 import utils
 
 
 # parse parameters from config file or CLI
 #input_testing = ['../data/1_FRLR/val/front', '../data/1_FRLR/val/rear', '../data/1_FRLR/val/left','../data/1_FRLR/val/right']
-input_testing = ['../z_bev/front']
+input_testing = ['../data/2_F/val/front']
 max_samples_testing = 1000
 image_shape = [256, 512]
 one_hot_palette_input = 'one_hot_conversion/convert_10.xml'
 one_hot_palette_label = 'one_hot_conversion/convert_3+occl.xml'
-#class_names = ['road', 'sidewalk', 'person', 'car', 'truck', 'bus', 'bike', 'obstacle', 'vegetation', 'occluded']
-#class_names = ['road', 'car', 'obstacle','occluded']
+#class_names = ['road', 'sidewalk', 'person', 'vehicle', 'truck', 'bus', 'bike', 'obstacle', 'vegetation', 'occluded']
+#class_names = ['road', 'vehicle', 'obstacle', 'occluded']
 model = 'architecture/uNetXST.py'
 unetxst_homographies = '../preprocessing/homography_converter/uNetXST_homographies/2_F.py'
-model_weights = r'D:\Study\课程\毕业设计\BEV\Cam2BEV\Github\Cam2BEV-master\model\output\2023-03-04-17-49-50\Checkpoints/best_weights.hdf5'
+model_weights = './best_weights.hdf5'
 prediction_dir = '../prediction/f2b'
 
 # determine absolute filepaths

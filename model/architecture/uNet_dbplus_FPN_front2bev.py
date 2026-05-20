@@ -236,6 +236,13 @@ def uNetXST_f2b(input_shape, n_output_channels,thetas,n_inputs = 1,
 
     return Model(inputs, prediction)
 
-image_shape          =[256, 512]
-model = uNetXST_f2b((image_shape[0], image_shape[1], 10), 4, thetas=np.eye(3))
-model.summary()
+def get_network(input_shape, n_output_channels, thetas=None, n_inputs=1):
+    if thetas is None:
+        thetas = np.eye(3)
+    return uNetXST_f2b(input_shape, n_output_channels, thetas=thetas, n_inputs=n_inputs)
+
+
+if __name__ == "__main__":
+    image_shape = [256, 512]
+    model = get_network((image_shape[0], image_shape[1], 10), 4)
+    model.summary()

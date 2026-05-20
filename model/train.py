@@ -5,7 +5,6 @@ from datetime import datetime
 import numpy as np
 import cv2
 import tensorflow as tf
-import configargparse
 
 import utils
 
@@ -35,8 +34,8 @@ save_interval= 5
 output_dir = 'output'
 
 # for training continuation, evaluation and prediction only
-#class_names= ['road', 'sidewalk', 'person', 'car', 'truck', 'bus', 'bike', 'obstacle', 'vegetation', 'occluded']
-class_names= ['road', 'car', 'obstacle', 'occluded']
+#class_names= ['road', 'sidewalk', 'person', 'vehicle', 'truck', 'bus', 'bike', 'obstacle', 'vegetation', 'occluded']
+class_names= ['road', 'vehicle', 'obstacle', 'occluded']
 model_weights = None
 
 # for predict.py only
